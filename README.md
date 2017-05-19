@@ -1,8 +1,6 @@
-#Project 03: Ctrl + F
+#Project 03: Ctrl+F
 ---
-**Ctrl + F** is a web search-engine application that links to the results with user's feedback on the content. 
-
-<!--More prodcut introduction?-->
+**Ctrl + F** is an online platform that offers two essential functionalities that do not currently exist: One is to review webpages within a web-search application and two, to add additional information such as comments and users’ suggested results to web queries in order to improve search algorithms and therefore to add value to the users’ web-search experience. 
 
 --
 ###Installation
