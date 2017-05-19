@@ -16,9 +16,10 @@ userRouter.route('/login')
   }))
 
 userRouter.route('/login-here')
-  .post(passport.authenticate('local-login'), (req, res) => {
-    res.redirect(req.headers.referer) //might cause an error if invalid email's inserted
-  })
+  .post(passport.authenticate('local-login', { //log the user in
+    successRedirect: 'back',
+    failureRedirect: 'back'
+  }))
 
 
 //signup path
@@ -46,7 +47,7 @@ userRouter.get('/logout', isLoggedIn, (req, res) => {
 
 userRouter.get('/logout-here', isLoggedIn, (req, res) => {
   req.logout()
-  res.redirect(req.headers.referer) //might cause an error later
+  res.redirect('back') //might cause an error later
 })
 
 //middleware, like "before action" in RoR
