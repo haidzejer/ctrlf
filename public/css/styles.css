@@ -1,4 +1,5 @@
 /* Show page css */
+
 .container {
   margin-top: 5%
 }
@@ -51,10 +52,14 @@ button {
   margin: 0 auto;
 }
 #comment-submit {
-  border: 1px solid black;
+  border: 1px solid grey;
   background-color: #F1F1F1;
   color: black;
   border-radius: 1px;
+}
+
+#ctrlfLink:hover {
+  text-decoration: none;
 }
 
 .appDisplay {
@@ -79,7 +84,7 @@ button {
 #toggle-app-display {
   position: absolute;
   bottom: 0;
-  left: 50%;
+  left: 47%;
   margin: 0 auto;
   z-index: 100000;
   border: 1px solid grey;
@@ -111,7 +116,7 @@ button {
 }
 
 .comment {
-  border: .5px solid black;
+  border: .5px solid grey;
   border-radius: 10px;
   background-color: rgba(250,250,250, .85);
   box-shadow: 3px 3px 3px lightgrey;
