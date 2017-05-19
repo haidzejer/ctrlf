@@ -10,7 +10,7 @@
 
 
      <div id="toggle-app-display">
-       <h4 style="font-size: 4px">
+       <h4 style="font-size: 4px; font-weight: bold; font-family: 'Varela', sans-serif;">
          <span style="color: #4285F4; font-size: 20px;">C</span>
          <span style="color: #DB4437; font-size: 20px;">t</span>
          <span style="color: #F4B400; font-size: 20px;">r</span>
@@ -23,13 +23,15 @@
      <div class="appDisplay" id="appDisplay">
        <span id="close-app-display"><h4 class="glyphicon glyphicon-minus"></h4></span>
        <span>
-         <h1 style="font-size: 15px">
-             <span style="color: #4285F4; font-size: 32px;">C</span style="color: yellow;">
-             <span style="color: #DB4437; font-size: 32px;">t</span>
-             <span style="color: #F4B400; font-size: 32px;">r</span>
-             <span style="color: #4285F4; font-size: 32px;">l</span>
-             <span style="color: #0F9D58; font-size: 32px;">+</span>
-             <span style="color: #DB4437; font-size: 32px;">F</span>
+         <h1 style="font-size: 15px; text-align: center;">
+             <span><a href="/" id="ctrlfLink" style="font-weight: bold; font-family: 'Varela', sans-serif; padding-left: 6%;">
+             <span style="color: #4285F4; font-size: 28px;">C</span style="color: yellow;">
+             <span style="color: #DB4437; font-size: 28px;">t</span>
+             <span style="color: #F4B400; font-size: 28px;">r</span>
+             <span style="color: #4285F4; font-size: 28px;">l</span>
+             <span style="color: #0F9D58; font-size: 28px;">+</span>
+             <span style="color: #DB4437; font-size: 28px;">F</span>
+             </a></span>
              <% if(isLoggedIn) { %>
              <span>
                <div class="dropdown pull-right">
@@ -85,7 +87,7 @@
               <% if(isLoggedIn) { %>
                  <div>
                     <h4>Add Comment</h4>
-                     <input type="text" id="comment-body"><br/>
+                     <input type="text" id="comment-body" style="box-shadow: 2px 2px 2px lightgrey;"><br/>
                      <button type="button" userName="<%= currentUser.local.name %>" userId="<%= currentUser._id %>" pageId="<%= webpage._id %>" id="comment-submit" style="margin-top: 10px;">Submit</button>
                  </div>
 
@@ -140,6 +142,11 @@
   var $editForm = $('<div>').attr('id', 'edit-form')
   $editForm.append('<input type="text" class="edit-input">')
   $editForm.append('<button class="update-button">Update</button>')
+
+  $commentBody.on('click', function () {
+    $(this).css("border", ".5px solid grey")
+  })
+
 //when edit button is clicked, show edit form
   $displayComments.on('click', 'li p.edit-comment-button', function() {
     $(this).parent().append($editForm)
