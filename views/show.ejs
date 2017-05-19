@@ -91,10 +91,7 @@
 
 
               <% } else { %>
-
                 <form action="/login-here" method="post">
-
-
                   <div class="form-group">
                       <label>Email</label>
                       <input type="text" class="form-control" name="email" />
@@ -109,9 +106,6 @@
               </form>
 
               <% } %>
-
-
-
             </div>
             <div class="col-sm-1">
 
@@ -142,17 +136,17 @@
   var $authorizeDelete = $('#authorize-delete')
   var $commentBody = $('#comment-body')
 
+//prep an edit form
   var $editForm = $('<div>').attr('id', 'edit-form')
   $editForm.append('<input type="text" class="edit-input">')
   $editForm.append('<button class="update-button">Update</button>')
-
+//when edit button is clicked, show edit form
   $displayComments.on('click', 'li p.edit-comment-button', function() {
     $(this).parent().append($editForm)
     $('.edit-input').val($(this).prev().prev().prev().text())
   })
-
+//when update button is clicked, run patch AJAX
   $displayComments.on('click', 'li #edit-form button', function() {
-    console.log('update button clicked!')
     var comment = $(this).parent().parent().parent().attr('id')
 
     var requestSettings = {
@@ -170,8 +164,7 @@
     })
   })
 
-
-
+  //when delete button is clicked
   $displayComments.on('click', 'li p.delete-comment', function() {
     var comment = $(this).parent().parent().attr('id')
 
@@ -184,7 +177,6 @@
     })
   })
 
-
   $toggleAppDisplay.on('click', function() {
     $appDisplay.toggle()
     $toggleAppDisplay.toggle()
@@ -193,20 +185,6 @@
   $closeApp.on('click', function () {
     $appDisplay.toggle()
     $toggleAppDisplay.toggle()
-  })
-
-
-  $loginHere.on('click', function() {
-    var pageId = $(this).attr('pageId')
-    var requestSettings = {
-      method: "POST",
-      url: '/login-here',
-      data: JSON.stringify({id: $emailHere.val(), password: $passwordHere.val()}),
-      contentType: "application.json"
-    }
-    $.ajax(requestSettings).done(function(u) {
-      window.location.replace('/webpages/' + pageId)
-    })
   })
 
 
